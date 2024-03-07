@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blockly Local Test</title>  
+    <script src="../dist/blockly_compressed.js"></script>
+    <script src="../dist/blocks_compressed.js"></script>
+    <script src="../dist/javascript_compressed.js"></script>
+    <script src="../dist/msg/en-gb.js"></script>
+  </head>
+  <body>
+    <p>test</p>
+    <div id="blocklyDiv" style="height:480px; width:600px;"></div>
+    <p>test2</p>
+    <script>
+        const toolbox = {
+          kind: 'flyoutToolbox',
+          contents: [
+            {
+              kind: 'block',
+              type: 'controls_if',
+            },
+            {
+              kind: 'block',
+              type: 'logic_compare',
+            },
+            {
+              kind: 'block',
+              type: 'controls_repeat_ext',
+            },
+            {
+              kind: 'block',
+              type: 'math_number',
+              fields: {
+                NUM: 123,
+              },
+            },
+            {
+              kind: 'block',
+              type: 'math_arithmetic',
+            },
+            {
+              kind: 'block',
+              type: 'text',
+            },
+            {
+              kind: 'block',
+              type: 'text_print',
+            },
+          ],
+        };
+        const demoWorkspace = Blockly.inject('blocklyDiv', {
+        toolbox: toolbox,
+      });
+    </script>
+  </body>
+</html>
