@@ -82,6 +82,24 @@ export function logic_compare(
   return [code, order];
 }
 
+export function logic_copy_test(
+  block: Block,
+  generator: JavascriptGenerator,
+): [string, Order] {
+  const OPERATORS = {
+    'EQ': '==',
+    'NEQ': '!=',
+  };
+  type OperatorOption = keyof typeof OPERATORS;
+  const operator = OPERATORS[block.getFieldValue('OP') as OperatorOption];
+  const order =
+    operator === '==' || operator === '!=' ? Order.EQUALITY : Order.RELATIONAL;
+  const argument0 = generator.valueToCode(block, 'A', order) || '0';
+  const argument1 = generator.valueToCode(block, 'B', order) || '0';
+  const code = argument0 + ' ' + operator + ' ' + argument1;
+  return [code, order];
+}
+
 export function logic_operation(
   block: Block,
   generator: JavascriptGenerator,

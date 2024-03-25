@@ -137,6 +137,34 @@ export const blocks = createBlockDefinitionsFromJsonArray([
     'helpUrl': '%{BKY_LOGIC_COMPARE_HELPURL}',
     'extensions': ['logic_compare', 'logic_op_tooltip'],
   },
+  // TEST BLOCK
+  {
+    'type': 'logic_copy_test',
+    'message0': '%1 %2 %3',
+    'args0': [
+      {
+        'type': 'input_value',
+        'name': 'A',
+      },
+      {
+        'type': 'field_dropdown',
+        'name': 'OP',
+        'options': [
+          ['=', 'EQ'],
+          ['\u2260', 'NEQ'],
+        ],
+      },
+      {
+        'type': 'input_value',
+        'name': 'B',
+      },
+    ],
+    'inputsInline': true,
+    'output': 'Boolean',
+    'style': 'logic_blocks',
+    'helpUrl': '%{BKY_LOGIC_COMPARE_HELPURL}',
+    'extensions': ['logic_compare', 'logic_op_tooltip'],
+  },
   // Block for logical operations: 'and', 'or'.
   {
     'type': 'logic_operation',
